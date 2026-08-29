@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>learning grid</title>
+
+  <style>
+    header{
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      min-height: 100px;
+      background-color: blanchedalmond;
+    }
+    footer{
+      display: flex;
+      justify-content: center;
+      background-color: hsl(0, 1%, 63%);
+    }
+    /* kkb */
+    .container{
+      display: grid;
+      grid-template-columns: 2fr 4fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 20px;
+    
+    }
+    .container > *{
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>I AM LEARNING GRID</h1>
+  </header>
+  <div class="container">
+    <div class="one">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus commodi dolore sed explicabo ipsum ea illo alias libero sit itaque!</p>
+    </div>
+    <div class="two">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe reiciendis ea velit est reprehenderit quidem excepturi, odit libero corrupti aut dolorum optio voluptatum quod provident recusandae voluptatem sit quaerat modi numquam. Qui molestias necessitatibus cum! Quam doloribus laboriosam eius recusandae?
+    </div>
+    <div class="three">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias cum soluta vitae nostrum ipsam cumque error, veniam rem voluptatibus ex dolorem. Natus, dignissimos quo reprehenderit similique quos adipisci quas tempore!</p>
+    </div>
+    <div class="four">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga obcaecati laborum dolores non consectetur tempore accusamus vitae quo tenetur?</p>
+    </div>
+    <div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum recusandae praesentium eum, esse vitae eaque voluptatem laudantium odio aliquam commodi!</p></div>
+    <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde quibusdam rerum, minima doloribus, illo earum, nostrum dolorum nemo repellendus molestiae at quidem provident! Laboriosam assumenda autem vel minus fugiat!</p></div>
+    <div><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, obcaecati eius! Veritatis nobis nihil explicabo optio labore quis recusandae sed.</p></div>
+    <div><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem voluptas veniam eaque, fugit, eos quo, delectus ullam sunt neque harum doloribus tenetur molestias molestiae commodi. Sequi enim quisquam nostrum dolorum?</p></div>
+    <div><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque repellat sit, fuga rerum quidem fugiat.</p></div>
+  </div>
+  <footer>@manish-2024</footer>
+</body>
+</html>

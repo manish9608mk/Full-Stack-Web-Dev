@@ -1,0 +1,325 @@
+<!-- Scroll 👇 to check the solution -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-16">
+  <!-- here UTF-8 ke jagah UTF-16 likh diye because ye bhut chiz support krta hai like emoji etc  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book reference</title>
+
+  <!-- linking the css file to html both seperate now -->
+  <link rel="stylesheet " href="../01-practice/index.css">
+  <!-- here rel for relationship -->
+
+ </head>
+ <body>
+
+  <!-- heading tag -->
+  <h1>Book Reference</h1>
+<h2>Chapter 1</h2>
+
+<h3 id="manish">Section 1</h3>
+<!-- inline styling bhi kr sakte hain and id=" " tag se repeated element mai se kisi ek ko krna ho toh id use kr skte hain and hastag use krke styling krte hain and  class bana ke bhi kar sakte hain styling dot lage ke karte ahin see below h2 example   -->
+
+<h3>Section 2</h3>
+
+<h2 class="mahi">Chapter 2</h2>
+
+<!-- title -->
+<h3 title="heading 3 ">Section 1</h3>
+
+<hr />
+
+<!-- TAG: b-bold,
+ strong,
+ i- italic,
+ em-emphasis,
+ small,
+ sub-subscript,
+ sup-superscript,
+ del-delete,
+ mark-mark kr diya yellow se,
+ q-quote,
+ abbr-abbriviation 
+ address,
+ cite,
+ bdo-reading direction change like MANISH to HSINAM
+ -->
+
+<h4> 
+  <i>Diagram 1 italic.</i> 
+  <strong>Diagram 1.</strong>
+  <b>Diagram 1 bold.</b>
+  <em>Diagram one.</em>
+  <small>Diagram one.</small>
+
+  <sub>Diagram one.</sub>
+  <!-- sub example H20 -->
+   <p> H<sub>2</sub>0 </p>
+
+   <!-- sup example a2+b2=c2 -->
+    <p>
+      a<sup>2</sup>+<sup>2</sup>=c<sup>2</sup>
+    </p>
+  <sup>Diagram one.</sup>
+
+  <del>Diagram 1.</del>
+  <mark>Diagram 1.</mark>
+  <q>This is my quote</q>
+  <abbr title="Hyper Text Markup Language">HTML</abbr>
+
+  <address><a href="manish9608mk@gmail.com">manish9608mk@gmail.com</a><br />
+    <a href="tel:+919608944819">+91 (9608944819)</a></address>
+
+  <cite><a href="http://www.george-orwell.org/1984/0.html">Nineteen Eighty-Four</a></cite> by George</cite>
+
+  <bdo dir="rtl">MANISH</bdo>
+
+  </h4>
+  <hr />
+
+<h2>Chapter 3</h2>
+<h3>Section 1</h3>
+<h3>Section 2</h3>
+
+<!-- paragraph and list -->
+<p><strong>Ordered List:</strong></p>
+<ol type="a">
+  <li>first item</li>
+  <li>second item</li>
+  <li>third item</li>
+</ol>
+<p><strong>Unordered List:</strong></p>
+<ul>
+  <li>fourth item</li>
+  <li>fifth item</li>
+  <li>sixth item</li>
+</ul>
+
+<!-- image -->
+ <img src="https://images.pexels.com/photos/1545590/pexels-photo-1545590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="500px" height="" alt="Image 2">
+
+ <hr />
+ <img src="https://images.pexels.com/photos/22691137/pexels-photo-22691137/free-photo-of-a-young-woman-with-her-hands-up-in-the-air.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="500px" alt="Image 2"> 
+
+ <br>
+ <br>
+ <!-- link -->
+  <a href="https://www.apple.com/in/">APPLE</a> <br>
+  <a href="https://www.google.co.in/?client=safari&channel=mac_bm"> GOOGLE</a>
+
+  
+
+
+  <hr/>
+
+  <!-- Table -->
+
+  <!-- thead-table head -->
+  <!-- th-table hesding -->
+  <!-- tbody-table body -->
+  <!-- tr-table-row -->
+  <!-- td-table data -->
+
+  <!-- shortcut: table>tr>th*3 -->
+
+   <table>
+    <thead>
+      <style>
+        table{
+          border: 2px solid black;
+          border-collapse: collapse;
+          width: 50%;
+          text-align: center;
+        
+        }
+         td,th{
+          border: 2px solid blueviolet;
+          padding: 10px;
+          
+        }
+        /* th{
+          border: 2px solid navy;
+        } */
+      </style>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Roll-no</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Sonu</td>
+        <td>VI</td>
+        <td>07</td>
+      </tr>
+      <tr>
+        <td>Manish</td>
+        <td>b-tech</td>
+        <td>103</td>
+      </tr>
+    </tbody>
+   </table>
+   <br>
+<hr/>
+
+  <!-- forms: detail explanation -->
+<p>form in HTML5</p>
+<!-- form ke aur bhi attribute hoti hai action aur method ke alawa see below -->
+  <form action="url" method="get" accept-charset="UTF-16" autocomplete="off" enctype="" >
+
+    <label for="fname">First Name:</label> 
+    <!-- label likhna acchi bat hai kkb label pe click krne pe uss placeholder mai click hoti hai dekh lo -->
+    <input type="text" placeholder="First Name" name="" id="fname">
+    <!-- input bhut tarah ke hote hai input: type krke dekh lo  -->
+<br/>
+    <form action="url" method="GET">
+      <label for="lname">Last Name:</label> 
+      <input type="text" placeholder="Last Name" name="" id="lname">
+    <!-- button se full and last name summit ho ke url pe jayega yahi faida hai and generall button ke liye submit he use krte hain-->
+      <button type="submit">Full Name</button> <br />
+
+      <label for="weeek">week:</label>
+      <input type="week" name="" id="weeek "> <br />
+
+      <label for="Image3">Image 3 below -></label>
+      <input type="image" src="https://images.pexels.com/photos/787472/pexels-photo-787472.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" width="500px" alt="image3">  <br />
+
+      <label for="Number"> Number:</label>
+      <input type="number" name="" id="Number"> <br />
+
+      <label for="time">Time:</label>
+      <input type="time" name="" id="time">  <br />
+
+      <label for="FILE">File:</label>
+      <input type="file" name="" id="FILE"> <br />
+
+      <label for="mahi">Selectors enterpreneur:</label>
+      <select name="enterpreneur" id="mahi" >
+        <option value="Elon Musk">Elon musk</option>
+        <option value="Steve jobs">steve jobs</option>
+        <option value="manish">Manish</option>
+        <option value="sonu">sonu</option>
+      </select>
+   
+  </form>
+
+<hr />
+   <!-- create form to display some information -->
+    <form>
+      <label for="">Full Name:</label>
+      <input type="text" placeholder="Full Name">
+      <input type="submit">    <br>
+      Password:
+    <input type="password" placeholder="password" name="password">
+    </form>
+
+    <!-- favourite color -->
+     <div>
+      favaurite color?
+      <input name="color" type="radio" value="red">Red <br/>
+      <input name="color" type="range" value="green">green <br/>
+      <input name="color?" type="radio" value="red">red
+     </div>
+
+     <!-- data list  -->
+      <div>
+        <input name="country" list="countries" placeholder="country">country
+        <datalist id="countries">
+          <option value="india">
+          <option value="USA">
+          <option value="france">
+          <option value="sripur">  
+        </datalist>
+        <input type="submit">
+      </div>
+
+      <!-- self closing tag  <hr/> is horizontal row rule element and <br> for break -->
+      <p>this is a paragraph</p>
+      <hr/>
+      <p>THIS IS A PARAGRAPH</p>
+
+      <!-- lorem ipsum -->
+       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id consequuntur voluptatum provident optio fugiat, minima officiis obcaecati eum </p>
+
+       <!-- br -->
+        <a href="#section 2">SCROLL to section 2</a>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.<br/>Repudiandae consequatur facere eaque error cupiditate iure cum hic autem veniam qui.</p>
+
+          <p id="section 2"> <mark>section 2 hai ye </mark>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt ratione adipisci quis animi deserunt? Itaque error impedit totam pariatur ad? Similique cum libero deserunt aperiam ipsa eum ex maxime assumenda lum deserunt. Omnis uos. Non, laudantium et ullam mollitia aliquam reprehenderit quis libero perferendis harum!</p>
+
+        <!-- css  -->
+         <!-- div use kate hain jab page ka koi section ko styling krna ho  -->
+        <div style="background-color:orangered;
+        height: 200px;
+        width: 200px;
+        padding:20px;
+        margin: 30px;
+        font-family: arial;
+        font-size: larger;
+        font-weight:bolder;
+        border: 3px solid greenyellow;
+        ">
+          hello world
+        </div>
+
+        some more text. isse div pe koi farak nhi parta 
+        
+        <pre>
+          <!-- iss tag ka use jaida tar ham poem ya code ko likhne ke liye krte hain -->
+          console.log("hello Manish")
+        </pre>
+
+        <!-- project 1 -->
+    <table>
+      <thead>
+        <style>
+        table{
+          width: 500px;
+        }
+        </style>
+        <tr>
+          <th>Name</td>
+          <th>youtube video</td>
+          <th>youtube video</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Elon Musk
+            <td><iframe width="560" height="315" src="https://www.youtube.com/embed/zIwLWfaAg-8?si=uINMtaMlt-ZboZ00" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+
+            <td><iframe width="560" height="315" src="https://www.youtube.com/embed/ytrtFsXRXGY?si=IevhD-dqt56iFEAJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+
+          </th>
+        </tr>
+        <tr>
+          <th>Steve Jobs
+            <td><iframe width="560" height="315" src="https://www.youtube.com/embed/UF8uR6Z6KLc?si=8lbwCO19Am4bbXcy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+
+            <td><iframe width="560" height="315" src="https://www.youtube.com/embed/CeSAjK2CBEA?si=P3iAUhNWakk-CkMF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></td>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+      
+    <br />
+
+    <!-- media(our audio and video ) -->
+
+
+    <strong>MY FIRST VIDEOS ON WEBSITE</strong> <br />
+     <video width="400" height="250" controls muted> 
+      <source src="./intersteller_docking.mp4">First video
+     </video> <br /> <br />
+
+     <strong>MY FIRST AUDIO ON WEBSITE</strong> <br />
+     <audio src="./audio.mp3" controls width="100" height="500">first audio</audio>
+
+     <br />
+
+     <!-- HTML attributes: anchor tag -->
+     <a draggable="true">This is a link to google: draggable</a>
+
+</body>
+</html>

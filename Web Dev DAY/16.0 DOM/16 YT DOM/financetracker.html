@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Finance Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .expense-form, .income-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .expense-form input, .income-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .expense-form button, .income-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .expense-form button:hover, .income-form button:hover {
+            background-color: #45a049;
+        }
+
+        .summary {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .summary h3 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .summary p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .transaction-list {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .transaction-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transaction-list li {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .transaction-list li span {
+            font-size: 16px;
+        }
+
+        .transaction-list li .expense {
+            color: #e74c3c;
+        }
+
+        .transaction-list li .income {
+            color: #2ecc71;
+        }
+
+        .summary .total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .summary .balance {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Personal Finance Tracker</h1>
+    </header>
+
+    <div class="container">
+        <h2>Track Your Income and Expenses</h2>
+
+        <div class="expense-form">
+            <h3>Add Expense</h3>
+            <input type="text" id="expenseCategory" placeholder="Expense Category (e.g., Food)" />
+            <input type="number" id="expenseAmount" placeholder="Amount" />
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+
+        <div class="income-form">
+            <h3>Add Income</h3>
+            <input type="text" id="incomeSource" placeholder="Income Source (e.g., Salary)" />
+            <input type="number" id="incomeAmount" placeholder="Amount" />
+            <button onclick="addIncome()">Add Income</button>
+        </div>
+
+        <div class="summary">
+            <h3>Summary</h3>
+            <p>Total Expenses: <span id="totalExpenses">0</span></p>
+            <p>Total Income: <span id="totalIncome">0</span></p>
+            <p class="total">Total Transactions: <span id="totalTransactions">0</span></p>
+            <p class="balance">Balance: <span id="balance">0</span></p>
+        </div>
+
+        <div class="transaction-list">
+            <h3>Transactions</h3>
+            <ul id="transactionList">
+                <!-- Transactions will be dynamically listed here -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let expenses = [];
+        let income = [];
+        let totalExpenses = 0;
+        let totalIncome = 0;
+        let totalTransactions = 0;
+
+        // Add Expense Function
+        function addExpense() {
+            const category = document.getElementById("expenseCategory").value;
+            const amount = parseFloat(document.getElementById("expenseAmount").value);
+
+            if (category && !isNaN(amount) && amount > 0) {
+                expenses.push({ category, amount });
+                totalExpenses += amount;
+                totalTransactions++;
+                updateSummary();
+                renderTransactions();
+                resetInputs('expense');
+            } else {
+                alert("Please enter valid expense details.");
+            }
+        }
+
+        // Add Income Function
+        function addIncome() {
+            const source = document.getElementById("incomeSource").value;
+            const amount = parseFloat(document.getElementById("incomeAmount").value);
+
+            if (source && !isNaN(amount) && amount > 0) {
+                income.push({ source, amount });
+                totalIncome += amount;
+                totalTransactions++;
+                updateSummary();
+                renderTransactions();
+                resetInputs('income');
+            } else {
+                alert("Please enter valid income details.");
+            }
+        }
+
+        // Update the Summary
+        function updateSummary() {
+            document.getElementById("totalExpenses").textContent = totalExpenses.toFixed(2);
+            document.getElementById("totalIncome").textContent = totalIncome.toFixed(2);
+            document.getElementById("totalTransactions").textContent = totalTransactions;
+            document.getElementById("balance").textContent = (totalIncome - totalExpenses).toFixed(2);
+        }
+
+        // Render Transactions
+        function renderTransactions() {
+            const transactionList = document.getElementById("transactionList");
+            transactionList.innerHTML = '';
+
+            expenses.forEach(exp => {
+                const li = document.createElement("li");
+                li.innerHTML = `<span>${exp.category}: $${exp.amount.toFixed(2)}</span><span class="expense">- $${exp.amount.toFixed(2)}</span>`;
+                transactionList.appendChild(li);
+            });
+
+            income.forEach(inc => {
+                const li = document.createElement("li");
+                li.innerHTML = `<span>${inc.source}: $${inc.amount.toFixed(2)}</span><span class="income">+ $${inc.amount.toFixed(2)}</span>`;
+                transactionList.appendChild(li);
+            });
+        }
+
+        // Reset Inputs after submission
+        function resetInputs(type) {
+            if (type === 'expense') {
+                document.getElementById("expenseCategory").value = '';
+                document.getElementById("expenseAmount").value = '';
+            } else {
+                document.getElementById("incomeSource").value = '';
+                document.getElementById("incomeAmount").value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>

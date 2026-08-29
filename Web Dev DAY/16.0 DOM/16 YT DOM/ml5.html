@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Support</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            padding: 10px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            margin: 10px 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .post {
+            background-color: #eaf7f2;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote {
+            font-style: italic;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        .emoji-reactions {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 15px;
+        }
+
+        .emoji-reactions span {
+            font-size: 26px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .emoji-reactions span:hover {
+            transform: scale(1.3);
+        }
+
+        .comment-section {
+            margin-top: 20px;
+        }
+
+        textarea.comment-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            resize: none;
+            margin-bottom: 15px;
+        }
+
+        .submit-comment {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-comment:hover {
+            background-color: #388e3c;
+        }
+
+        .comment {
+            background-color: #f1f1f1;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar {
+            width: 80%;
+            max-width: 400px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #4CAF50;
+            padding: 15px;
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            transform: scale(1.2);
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .container {
+            background-color: #333;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .dark-mode button {
+            background-color: #ff6347;
+        }
+
+        .dark-mode .post {
+            background-color: #444;
+            border-left: 6px solid #ff6347;
+        }
+
+        .dark-mode .emoji-reactions span {
+            color: #ff6347;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 10px 18px;
+            }
+
+            .post {
+                padding: 15px;
+            }
+
+            .submit-comment {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌿 Mental Health Support 🌿</h1>
+    <p>Share your thoughts anonymously and get support from others. 🌈</p>
+
+    <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    <button id="loginBtn" onclick="login()">🔑 Enter Your Name</button>
+    <button id="logoutBtn" class="hidden" onclick="logout()">🚪 Logout</button>
+    <p id="userInfo" class="hidden"></p>
+
+    <div class="container hidden" id="postSection">
+        <h2>Post Your Thoughts</h2>
+        <textarea id="thoughtInput" placeholder="Write your thoughts..."></textarea>
+        
+        <select id="moodSelect">
+            <option value="happy">😊 Feeling Happy</option>
+            <option value="sad">😢 Feeling Sad</option>
+            <option value="anxious">😰 Feeling Anxious</option>
+        </select>
+        
+        <button onclick="postThought()">Post</button>
+        
+        <div id="thoughtsList"></div>
+    </div>
+
+    <input type="text" id="searchBar" class="search-bar" oninput="filterPosts()" placeholder="Search posts..." />
+
+    <div class="scroll-to-top" onclick="scrollToTop()">⬆️</div>
+
+    <script>
+        let saveDraftInterval;
+        
+        // Check if the user is logged in
+        function login() {
+            let username = prompt("Enter your name:");
+            if (username) {
+                localStorage.setItem("username", username);
+                document.getElementById("userInfo").textContent = `Logged in as ${username}`;
+                document.getElementById("userInfo").classList.remove("hidden");
+                document.getElementById("loginBtn").classList.add("hidden");
+                document.getElementById("logoutBtn").classList.remove("hidden");
+                document.getElementById("postSection").classList.remove("hidden");
+                loadPosts();
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem("username");
+            document.getElementById("userInfo").classList.add("hidden");
+            document.getElementById("loginBtn").classList.remove("hidden");
+            document.getElementById("logoutBtn").classList.add("hidden");
+            document.getElementById("postSection").classList.add("hidden");
+            document.getElementById("thoughtsList").innerHTML = "";
+        }
+
+        // Post a thought
+        function postThought() {
+            let input = document.getElementById("thoughtInput");
+            let mood = document.getElementById("moodSelect").value;
+            let username = localStorage.getItem("username");
+
+            if (!username) {
+                alert("Please enter your name first.");
+                return;
+            }
+            if (input.value.trim().length < 10) {
+                alert("Please write at least 10 characters.");
+                return;
+            }
+
+            let newPost = {
+                text: input.value,
+                mood: mood,
+                likes: 0,
+                comments: []
+            };
+
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.unshift(newPost);
+            localStorage.setItem("posts", JSON.stringify(posts));
+
+            input.value = "";
+            loadPosts();
+        }
+
+        // Load posts from local storage
+        function loadPosts() {
+            let thoughtsList = document.getElementById("thoughtsList");
+            thoughtsList.innerHTML = "";
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+            posts.forEach((data, index) => {
+                let postDiv = document.createElement("div");
+                postDiv.className = "post";
+                postDiv.innerHTML = `<p>${data.text}</p>
+                                     <div class="quote">“Keep your face always toward the sunshine—and shadows will fall behind you.”</div>
+                                     <span class="likes" onclick="likePost(${index})">❤️ ${data.likes}</span>
+                                     <div class="emoji-reactions">
+                                         <span>😊</span>
+                                         <span>💖</span>
+                                         <span>😢</span>
+                                     </div>
+                                     <div class="comment-section">
+                                         <textarea id="commentInput-${index}" class="comment-input" placeholder="Add a comment..."></textarea>
+                                         <button class="submit-comment" onclick="addComment(${index})">Post Comment</button>
+                                     </div>`;
+
+                // Display comments
+                data.comments.forEach(comment => {
+                    let commentDiv = document.createElement("div");
+                    commentDiv.className = "comment";
+                    commentDiv.textContent = comment;
+                    postDiv.appendChild(commentDiv);
+                });
+
+                thoughtsList.appendChild(postDiv);
+            });
+        }
+
+        // Filter posts by search input
+        function filterPosts() {
+            let searchText = document.getElementById("searchBar").value.toLowerCase();
+            let posts = JSON.parse(localStorage.getItem("posts")) || [];
+            let filteredPosts = posts.filter(post => post.text.toLowerCase().includes(searchText));
+            displayFilteredPosts(filteredPosts);
+        }
+
+        // Display filtered posts
+        function displayFilteredPosts(posts) {
+            let thoughtsList = document.getElementById("thoughtsList");
+            thoughtsList.innerHTML = "";
+
+            posts.forEach((data, index) => {
+                let postDiv = document.createElement("div");
+                postDiv.className = "post";
+                postDiv.innerHTML = `<p>${data.text}</p>
+                                     <div class="quote">“Keep your face always toward the sunshine—and shadows will fall behind you.”</div>
+                                     <span class="likes" onclick="likePost(${index})">❤️ ${data.likes}</span>
+                                     <div class="emoji-reactions">
+                                         <span>😊</span>
+                                         <span>💖</span>
+                                         <span>😢</span>
+                                     </div>
+                                     <div class="comment-section">
+                                         <textarea id="commentInput-${index}" class="comment-input" placeholder="Add a comment..."></textarea>
+                                         <button class="submit-comment" onclick="addComment(${index})">Post Comment</button>
+                                     </div>`;
+
+                thoughtsList.appendChild(postDiv);
+            });
+        }
+
+        // Scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Save drafts every 10 seconds
+        setInterval(function() {
+            let draft = document.getElementById("thoughtInput").value;
+            if (draft) {
+                localStorage.setItem("draft", draft);
+            }
+        }, 10000);
+
+        // Load saved drafts
+        window.onload = function() {
+            let draft = localStorage.getItem("draft");
+            if (draft) {
+                document.getElementById("thoughtInput").value = draft;
+            }
+        }
+    </script>
+</body>
+</html>

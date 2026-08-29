@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- TODO
+1. Make both paragraph elements wrap around the image.
+2. Use Float to move the cat div to the left and the dog div to the right.
+3. Use clear to make the footer go below both the cat and dog div. -->
+
+
+
+<!-- SOLVE NHI HUA HAI -->
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Float</title>
+  <style>
+    div {
+      display: inline-block;
+      width: 40%;
+    }
+
+    p {
+      font-size: 1.5em;
+    }
+
+    .cat {
+      background-color: aquamarine;
+      float: left;
+    }
+
+    .dog {
+      background-color: coral;
+      float: right;
+
+    }
+
+    image{
+      /* width: 200px; */
+      float: left;
+    }
+
+    footer {
+      clear: both;
+      text-align: center;
+      background-color: rgb(154, 154, 154);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cat">
+    <h2>CatCSS</h2>
+
+    <img src="cat.jpeg" alt="cat in a box" />
+    <p class="first-paragraph">Nap all day cat dog hate mouse eat string barf pillow no baths hate everything but kitty
+      poochy. Sleep on keyboard
+      toy
+      mouse squeak roll over. Mesmerizing birds. Poop on grasses licks paws destroy couch intently sniff hand. The dog
+      smells
+      bad gnaw. In September 2021, Lisa released her debut single album Lalisa, which made her the first female artist to sell 736,000 copies of an album in its first week in South Korea. The music video for its lead single became the most-viewed music video in the first 24 hours on YouTube by a solo artist. Both "Lalisa" and the album's viral second single "Money" charted in the top ten of the Billboard Global 200, with the latter breaking the record for the longest-charting song by a female K-pop soloist on the US Billboard Hot 100 and the UK Singles Chart. Lalisa and "Money" became the first album and song by a K-pop solo artist to reach one billion streams on Spotify, respectively. In 2024, Lisa established her own management company named Lloud, signed with RCA Records, and achieved her first number-one single on the Billboard Global Excl. US with "Rockstar", the lead single of her debut studio album Alter Ego (2025).</p>
+  </div>
+  <div class="dog">
+    <h2>DogCSS</h2>
+    <img src="dog.jpeg" alt="dogs in a box" />
+    <p class="second-paragraph">Heckin good boys and girls long woofer big ol wow very biscit long woofer heck what a
+      nice
+      floof, long doggo noodle
+      horse vvv very taste wow. Very taste wow many pats aqua doggo he made many woofs pupperino, puggo doing me a
+      frighten. In September 2021, Lisa released her debut single album Lalisa, which made her the first female artist to sell 736,000 copies of an album in its first week in South Korea. The music video for its lead single became the most-viewed music video in the first 24 hours on YouTube by a solo artist. Both "Lalisa" and the album's viral second single "Money" charted in the top ten of the Billboard Global 200, with the latter breaking the record for the longest-charting song by a female K-pop soloist on the US Billboard Hot 100 and the UK Singles Chart. Lalisa and "Money" became the first album and song by a K-pop solo artist to reach one billion streams on Spotify, respectively. In 2024, Lisa established her own management company named Lloud, signed with RCA Records, and achieved her first number-one single on the Billboard Global Excl. US with "Rockstar", the lead single of her debut studio album Alter Ego (2025).</p>
+  </div>
+
+
+
+
+  <footer>Copyright.@manish - 2024</footer>
+</body>
+
+</html>

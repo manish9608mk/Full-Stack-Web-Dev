@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM JavaScript Youtube</title>
+
+  <style>
+    .bgColor{
+      background-color: rgb(48, 48, 48);
+      color: rgb(157, 216, 255);
+    }
+  </style>
+</head>
+<body class="bgColor">
+
+  <div class="weekParent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thursday</div>
+    <div class="day">Friday</div>
+    <div class="day">Saturday</div>
+  </div>
+
+  <div>
+    <h1 id="title" class="heading">Elon Musk</h1>
+    <p>
+      Elon Reeve Musk (born June 28, 1971) is a businessman known for his key roles in Tesla, SpaceX, PayPal, OpenAI and Twitter (which he rebranded as X). Since 2025, he has been a senior advisor to United States president Donald Trump and the de facto head of the Department of Government Efficiency (DOGE). Musk is the wealthiest person in the world; as of March 2025, Forbes estimates his net worth to be $320 billion USD.
+    </p>
+    <p>
+      Born to a wealthy family in Pretoria, South Africa, Musk emigrated in 1989 to Canada, whose citizenship he had inherited through his mother. He graduated from the University of Pennsylvania in the U.S. before moving to California to pursue business ventures. In 1995, Musk co-founded the software company Zip2. Following its sale in 1999, he co-founded X.com, an online payment company that later merged to form PayPal, which was acquired by eBay in 2002 for $1.5 billion. That year, Musk also became a U.S. citizen.
+    </p>
+    <p>
+      In 2002, Musk founded SpaceX and became its CEO and chief engineer. The company has since led innovations in reusable rockets and commercial spaceflight. In 2004, Musk joined Tesla, Inc. as an early investor, and became its CEO and product architect in 2008; it has become a market leader in electric vehicles. In 2015, he co-founded OpenAI to advance artificial intelligence research, but left its board in 2018. In 2016, Musk co-founded Neuralink, a company focused on brain–computer interfaces, and in 2017 launched the Boring Company, which aims to develop tunnel transportation. Musk was named Time magazine's Person of the Year in 2021. In 2022, he acquired Twitter, implementing significant changes and rebranding it as X in 2023. In January 2025, he was appointed head of Trump's newly created DOGE.
+    </p>
+ </div>
+</body>
+<script>
+  let parent = document.querySelector(".weekParent")
+  console.log(parent);
+  console.log(parent.children);
+  console.log(parent.children[3]);
+  console.log(parent.children[4].innerHTML);
+
+for(let i=0; i < parent.children.length; i++){
+ console.log(parent.children[i].innerHTML);
+}
+
+parent.children[0].style.color = "yellow"
+console.log(parent.firstElementChild);
+console.log(parent.lastElementChild);
+
+let day1 = document.querySelector(".day")
+console.log(day1);
+console.log(day1.parentElement);
+console.log(day1.nextElementSibling);
+
+// childNodes
+console.log("NODES: ", parent.childNodes); 
+
+
+</script>
+</html>

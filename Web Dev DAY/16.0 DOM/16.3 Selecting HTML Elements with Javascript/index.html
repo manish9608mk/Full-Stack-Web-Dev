@@ -1,0 +1,423 @@
+<!-- Selecting HTML Elements with Javascript -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>My Website</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+    <h1>Hello</h1>
+
+    <input type="checkbox">
+
+    <button style="color:red;">Click Me</button>
+
+    <ul>
+      <li class="list">
+        <a href="https://www.google.com">Google</a>
+      </li>
+      <li class="list">Second</li>
+      <li class="list">Third</li>
+    </ul>
+
+  </body>
+
+</html>
+
+
+
+
+<!-- 
+There are hundreds of DOM properties available in JavaScript, as the DOM API covers different aspects of document structure, elements, attributes, styles, events, and more. Below is a categorized list of all major DOM properties:
+
+⸻
+
+1. Document Properties
+
+These properties belong to the document object:
+
+Property	Description
+document.URL	Returns the full URL of the document.
+document.title	Gets or sets the title of the document.
+document.domain	Returns the domain name of the document.
+document.referrer	Returns the URL of the referring document.
+document.cookie	Gets or sets cookies for the document.
+document.body	Returns the <body> element of the document.
+document.head	Returns the <head> element of the document.
+document.documentElement	Returns the <html> element.
+document.forms	Returns a collection of all <form> elements.
+document.images	Returns a collection of all <img> elements.
+document.links	Returns all <a> elements with href attributes.
+document.scripts	Returns all <script> elements.
+document.styleSheets	Returns all linked or embedded stylesheets.
+document.readyState	Returns loading, interactive, or complete.
+
+
+
+⸻
+
+2. Element Properties
+
+These properties allow interaction with individual HTML elements:
+
+Property	Description
+element.id	Gets or sets the id of an element.
+element.className	Gets or sets the class attribute as a string.
+element.classList	Returns a list of classes and provides methods (add, remove, toggle).
+element.innerHTML	Gets or sets the HTML content inside an element.
+element.innerText	Gets or sets only the visible text of an element.
+element.textContent	Gets or sets the text content (ignoring styles).
+element.value	Gets or sets the value of input elements.
+element.src	Gets or sets the src attribute of an <img> or <iframe>.
+element.href	Gets or sets the href attribute of an <a> tag.
+element.alt	Gets or sets the alt text of an <img>.
+element.disabled	Enables or disables form elements.
+element.checked	Checks if a checkbox or radio button is selected.
+element.readOnly	Sets input fields to read-only.
+element.tabIndex	Sets the tab order of an element.
+
+
+
+⸻
+
+3. Node Properties
+
+These properties apply to all nodes (elements, text nodes, comments, etc.):
+
+Property	Description
+node.nodeName	Returns the name of the node (e.g., DIV, P).
+node.nodeType	Returns the type of node (1 = element, 3 = text, etc.).
+node.nodeValue	Gets or sets the value of a text or comment node.
+node.parentNode	Returns the parent node of an element.
+node.childNodes	Returns a collection of child nodes (including text nodes).
+node.firstChild	Returns the first child node.
+node.lastChild	Returns the last child node.
+node.nextSibling	Returns the next sibling node.
+node.previousSibling	Returns the previous sibling node.
+
+
+
+⸻
+
+4. Parent and Child Element Properties
+
+These properties work with elements in the DOM hierarchy:
+
+Property	Description
+element.children	Returns a collection of child elements (ignores text nodes).
+element.firstElementChild	Returns the first child element.
+element.lastElementChild	Returns the last child element.
+element.nextElementSibling	Returns the next sibling element.
+element.previousElementSibling	Returns the previous sibling element.
+element.parentElement	Returns the parent element.
+
+
+
+⸻
+
+5. Style Properties
+
+These properties allow dynamic styling of elements:
+
+Property	Description
+element.style	Returns or sets inline styles.
+element.style.color	Gets or sets the text color.
+element.style.backgroundColor	Gets or sets the background color.
+element.style.fontSize	Gets or sets the font size.
+element.style.display	Controls the visibility (none, block, flex, etc.).
+element.style.visibility	Controls visibility (visible, hidden).
+element.style.opacity	Controls transparency (0 to 1).
+element.style.border	Sets border properties.
+
+
+
+⸻
+
+6. Attribute Properties
+
+Used for working with attributes dynamically:
+
+Property	Description
+element.hasAttribute(name)	Checks if an attribute exists.
+element.getAttribute(name)	Gets the value of an attribute.
+element.setAttribute(name, value)	Sets an attribute.
+element.removeAttribute(name)	Removes an attribute.
+
+
+
+⸻
+
+7. Form Properties
+
+These properties are specific to form elements:
+
+Property	Description
+form.elements	Returns all form elements.
+input.type	Gets or sets the type of an input (text, password, radio, etc.).
+input.name	Gets or sets the name of an input.
+input.value	Gets or sets the value of an input.
+input.placeholder	Gets or sets the placeholder text.
+input.maxLength	Sets the maximum number of characters.
+input.minLength	Sets the minimum number of characters.
+input.required	Specifies whether an input is required.
+input.readOnly	Makes an input read-only.
+input.disabled	Disables an input field.
+
+
+
+⸻
+
+8. Event-Related Properties
+
+These properties help manage events on elements:
+
+Property	Description
+element.onclick	Sets a function to run when the element is clicked.
+element.onmouseover	Triggers when the mouse is over the element.
+element.onmouseout	Triggers when the mouse leaves the element.
+element.onchange	Triggers when an input value changes.
+element.onkeydown	Triggers when a key is pressed.
+element.onkeyup	Triggers when a key is released.
+element.onsubmit	Triggers when a form is submitted.
+
+
+
+⸻
+
+9. Table Properties
+
+For working with <table> elements:
+
+Property	Description
+table.rows	Returns a collection of all rows.
+table.caption	Gets or sets the table caption.
+table.tBodies	Returns a collection of table bodies.
+table.tHead	Returns the table header section.
+table.tFoot	Returns the table footer section.
+
+
+
+⸻
+
+10. Miscellaneous Properties
+
+Property	Description
+window.innerWidth	Returns the width of the window viewport.
+window.innerHeight	Returns the height of the window viewport.
+window.scrollX	Returns the horizontal scroll position.
+window.scrollY	Returns the vertical scroll position.
+navigator.userAgent	Returns the user’s browser information.
+navigator.language	Returns the user’s language setting.
+history.length	Returns the number of visited pages in the session.
+
+
+
+⸻
+
+Want a practical demo or a code snippet for any property? Let me know! 🚀
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+JavaScript DOM Methods (Detailed Explanation)
+
+DOM (Document Object Model) methods allow you to manipulate HTML elements dynamically, such as adding, removing, updating, or modifying attributes and styles. Below is a categorized and detailed breakdown of important DOM methods in JavaScript.
+
+⸻
+
+1. Methods for Selecting Elements
+
+These methods are used to retrieve elements from the DOM.
+
+Method	Description	Example
+document.getElementById(id)	Selects an element by its id.	document.getElementById("demo")
+document.getElementsByClassName(className)	Returns a collection of elements with the given class.	document.getElementsByClassName("myClass")
+document.getElementsByTagName(tagName)	Returns a collection of elements with the given tag name.	document.getElementsByTagName("p")
+document.querySelector(selector)	Returns the first element that matches the given CSS selector.	document.querySelector(".myClass")
+document.querySelectorAll(selector)	Returns a NodeList of all elements that match the selector.	document.querySelectorAll("div p")
+
+Example
+
+<p id="demo">Hello</p>
+<script>
+    let element = document.getElementById("demo");
+    console.log(element.innerText); // Output: Hello
+</script>
+
+
+
+⸻
+
+2. Methods for Creating and Adding Elements
+
+These methods allow you to create and insert elements into the DOM.
+
+Method	Description	Example
+document.createElement(tagName)	Creates a new element but doesn’t add it to the DOM yet.	document.createElement("p")
+element.appendChild(newElement)	Adds a new element as the last child of the given element.	parent.appendChild(child)
+element.insertBefore(newElement, referenceElement)	Inserts a new element before another existing element.	parent.insertBefore(newEl, refEl)
+element.append(...nodes)	Adds multiple nodes at the end of an element.	div.append(child1, child2)
+element.prepend(...nodes)	Adds nodes at the beginning of an element.	div.prepend(child1, child2)
+
+Example
+
+<div id="container"></div>
+
+<script>
+    let newPara = document.createElement("p");
+    newPara.innerText = "This is a new paragraph.";
+    
+    let container = document.getElementById("container");
+    container.appendChild(newPara); // Adds <p> inside <div>
+</script>
+
+
+
+⸻
+
+3. Methods for Removing Elements
+
+These methods help in deleting elements from the DOM.
+
+Method	Description	Example
+element.remove()	Removes an element from the DOM.	document.getElementById("demo").remove()
+element.removeChild(child)	Removes a specific child element.	parent.removeChild(childElement)
+element.replaceChild(newChild, oldChild)	Replaces an existing child with a new one.	parent.replaceChild(newEl, oldEl)
+
+Example
+
+<p id="demo">This will be removed.</p>
+
+<script>
+    let para = document.getElementById("demo");
+    para.remove(); // Removes the paragraph
+</script>
+
+
+
+⸻
+
+4. Methods for Modifying Attributes
+
+These methods allow getting, setting, or removing attributes.
+
+Method	Description	Example
+element.hasAttribute(name)	Checks if an element has a specific attribute.	btn.hasAttribute("disabled")
+element.getAttribute(name)	Gets the value of an attribute.	link.getAttribute("href")
+element.setAttribute(name, value)	Sets or updates an attribute.	img.setAttribute("src", "image.jpg")
+element.removeAttribute(name)	Removes an attribute.	input.removeAttribute("readonly")
+
+Example
+
+<a id="myLink" href="https://example.com">Click here</a>
+
+<script>
+    let link = document.getElementById("myLink");
+    console.log(link.getAttribute("href")); // Output: https://example.com
+    
+    link.setAttribute("href", "https://newsite.com");
+</script>
+
+
+
+⸻
+
+5. Methods for Working with Classes
+
+Used to manipulate element classes dynamically.
+
+Method	Description	Example
+element.classList.add(className)	Adds a class to an element.	div.classList.add("active")
+element.classList.remove(className)	Removes a class.	div.classList.remove("hidden")
+element.classList.toggle(className)	Toggles a class (adds if missing, removes if present).	div.classList.toggle("dark-mode")
+element.classList.contains(className)	Checks if an element has a specific class.	div.classList.contains("active")
+
+Example
+
+<button id="myButton">Click Me</button>
+
+<script>
+    let btn = document.getElementById("myButton");
+    btn.classList.add("highlight"); // Adds the "highlight" class
+</script>
+
+
+
+⸻
+
+6. Methods for Modifying Content
+
+Used to change the content of elements.
+
+Method	Description	Example
+element.innerHTML	Gets or sets the HTML inside an element.	div.innerHTML = "<p>New Content</p>";
+element.innerText	Gets or sets only the text inside an element.	p.innerText = "Hello!"
+element.textContent	Similar to innerText, but ignores styling.	p.textContent = "Hello!"
+
+Example
+
+<div id="content">Old Content</div>
+
+<script>
+    let div = document.getElementById("content");
+    div.innerHTML = "<b>New Content</b>"; // Changes HTML inside div
+</script>
+
+
+
+⸻
+
+7. Event Listener Methods
+
+Used to handle user interactions.
+
+Method	Description	Example
+element.addEventListener(event, function)	Attaches an event listener.	btn.addEventListener("click", myFunction);
+element.removeEventListener(event, function)	Removes an event listener.	btn.removeEventListener("click", myFunction);
+
+Example
+
+<button id="myButton">Click Me</button>
+
+<script>
+    let btn = document.getElementById("myButton");
+    btn.addEventListener("click", function() {
+        alert("Button Clicked!");
+    });
+</script>
+
+
+
+⸻
+
+8. Methods for Scrolling and Dimensions
+
+Used for handling page scrolling and dimensions.
+
+Method	Description	Example
+window.scrollTo(x, y)	Scrolls to a specific position.	window.scrollTo(0, 500);
+window.scrollBy(x, y)	Scrolls relative to current position.	window.scrollBy(0, 100);
+element.scrollIntoView()	Scrolls an element into view.	document.getElementById("section").scrollIntoView();
+
+
+
+⸻
+
+Final Thoughts
+
+These DOM methods provide a powerful way to manipulate web pages dynamically. Let me know if you need examples or want an explanation of a specific method! 🚀
+-->

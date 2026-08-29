@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit and remove elements in DOM</title>
+
+  <style>
+    body{
+      background-color: rgb(99, 98, 98);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Edit and remove elements in DOM</h1>
+  <ul class="language">
+    <li>JavaScript</li>
+  </ul>
+  
+</body>
+<script>
+  function addLanguage(langName){
+    let list = document.createElement('li');
+    list.innerHTML = `${langName}`
+    document.querySelector('.language').appendChild(list)
+  }
+  addLanguage("python")
+  addLanguage("c++")
+  addLanguage("Java")
+  addLanguage("typeScript")
+
+  // large scale mai upar wale code mai bar bar traversing krna padega so,optimised way of above code using dsa : optimised approach bcz pura jo tree hai usko traverse nhi krna par raha hai 
+  // always go for appendChild instead of innerHTML
+  // Use appendChild for better performance when handling multiple elements.
+
+
+  function addOptimisedLang(langName){
+    let list = document.createElement('li');
+
+    // let addText = document.createTextNode(langName)
+    // list.appendChild(addText)
+    // or,upar wale 2 line code aur acche likho
+    list.appendChild(document.createTextNode(langName))
+
+    document.querySelector('.language').appendChild(list)
+  }
+  addOptimisedLang("Dart")
+  addOptimisedLang("GoLang")
+
+  // edit: repaceWith
+  let secLang = document.querySelector("li:nth-child(2)")
+  // secLang.innerHTML = "Manish" //innerhtml but not a good choice so,go for append child
+  let newLi = document.createElement('li')
+  newLi.textContent = "Manish Kumar"
+  secLang.replaceWith(newLi)
+
+  // edit: outerHTML - replace javaScript with TypeScriptNew
+  let firstLang = document.querySelector("li:first-child")
+  firstLang.outerHTML = "<li>TypeScriptNew</li>"
+
+
+  // remove aim remove GoLang
+  let lastLang = document.querySelector("li:last-child")
+  lastLang.remove()
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodMelody - Music & Video Recommendations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+
+        .mood-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            background: #00d4ff;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #00b7d6;
+        }
+
+        #media-player {
+            text-align: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        audio, video {
+            width: 100%;
+            margin: 15px 0;
+            max-height: 400px; /* Limit video height */
+        }
+
+        #playlist {
+            margin-top: 20px;
+        }
+
+        #playlist-items {
+            list-style: none;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        #playlist-items li {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #playlist-items li:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #media-quote {
+            font-style: italic;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>MoodMelody</h1>
+            <p id="greeting"></p>
+        </header>
+
+        <div class="mood-selector">
+            <button onclick="recommendMedia('happy')">Happy</button>
+            <button onclick="recommendMedia('sad')">Sad</button>
+            <button onclick="recommendMedia('energetic')">Energetic</button>
+            <button onclick="recommendMedia('calm')">Calm</button>
+            <button onclick="recommendMedia('random')">Random</button>
+        </div>
+
+        <div id="media-player">
+            <h2>Now Playing</h2>
+            <div id="media-info">
+                <p id="media-title">Select a mood to start</p>
+                <p id="artist">Your musical journey awaits</p>
+            </div>
+            <audio id="audio-player" controls style="display: none;"></audio>
+            <video id="video-player" controls style="display: none;"></video>
+            <p id="media-quote"></p>
+        </div>
+
+        <div id="playlist">
+            <h3>Suggested Playlist</h3>
+            <ul id="playlist-items"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Media database with audio and video streaming URLs
+        const mediaDatabase = {
+            happy: [
+                { title: "Pop Hits Stream", artist: "Various Artists", src: "https://youtu.be/kPa7bsKwL-c?si=5CXrNKi5AaddpTmd", type: "audio" },
+                { title: "Happy Video Mix", artist: "Various Artists", src: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", type: "video" },
+                { title: "Upbeat Radio", artist: "Various Artists", src: "http://stream.zeno.fm/1v7n3k5m0zuv", type: "audio" },
+            ],
+            sad: [
+                { title: "Ballad Stream", artist: "Various Artists", src: "https://youtu.be/tXsQJhoauxc?si=N-7daojqqxnFzDi1", type: "video" },
+                { title: "Sad Music Video", artist: "Various Artists", src: "https://www.youtube.com/watch?v=1Siylvc_Fi8", type: "video" },
+                { title: "Melancholy Radio", artist: "Various Artists", src: "http://stream.zeno.fm/6v4n2k5m0zuv", type: "audio" },
+            ],
+            energetic: [
+                { title: "Dance EDM Stream", artist: "Various Artists", src: "http://stream.zeno.fm/7v5n2k4m0zuv", type: "audio" },
+                { title: "Energetic Dance Video", artist: "Various Artists", src: "https://www.youtube.com/watch?v=2Vv-BfVoq4g", type: "video" },
+                { title: "Party Mix", artist: "Various Artists", src: "http://stream.zeno.fm/4v7n2k4m0zuv", type: "audio" },
+            ],
+            calm: [
+                { title: "Ambient Stream", artist: "Various Artists", src: "http://stream.zeno.fm/9v6n3k5m0zuv", type: "audio" },
+                { title: "Relaxing Nature Video", artist: "Various Artists", src: "https://www.youtube.com/watch?v=668nUCeBHyY", type: "video" },
+                { title: "Chill Vibes", artist: "Various Artists", src: "http://stream.zeno.fm/3v9n3k5m0zuv", type: "audio" },
+            ]
+        };
+
+        const mediaQuotes = {
+            happy: [
+                "Music gives a soul to the universe, wings to the mind, flight to the imagination and life to everything. - Plato",
+                "Where words fail, music speaks. - Hans Christian Andersen"
+            ],
+            sad: [
+                "Music was my refuge. I could crawl into the space between the notes and curl my back to loneliness. - Maya Angelou",
+                "The good times of today, are the sad thoughts of tomorrow. - Bob Marley"
+            ],
+            energetic: [
+                "Music is the strongest form of magic. - Marilyn Manson",
+                "One good thing about music, when it hits you, you feel no pain. - Bob Marley"
+            ],
+            calm: [
+                "Music washes away from the soul the dust of everyday life. - Berthold Auerbach",
+                "Music is the divine way to tell beautiful, poetic things to the heart. - Pablo Casals"
+            ]
+        };
+
+        // Greeting based on time
+        function setGreeting() {
+            const hour = new Date().getHours();
+            let greeting;
+            if (hour < 12) greeting = "Good Morning";
+            else if (hour < 18) greeting = "Good Afternoon";
+            else greeting = "Good Evening";
+            document.getElementById("greeting").textContent = `${greeting}, Media Lover!`;
+        }
+
+        // Media recommendation function
+        function recommendMedia(mood) {
+            let mediaItems;
+            if (mood === "random") {
+                const moods = Object.keys(mediaDatabase);
+                mood = moods[Math.floor(Math.random() * moods.length)];
+                mediaItems = mediaDatabase[mood];
+            } else {
+                mediaItems = mediaDatabase[mood];
+            }
+
+            const randomMedia = mediaItems[Math.floor(Math.random() * mediaItems.length)];
+            const audioPlayer = document.getElementById("audio-player");
+            const videoPlayer = document.getElementById("video-player");
+            const mediaTitle = document.getElementById("media-title");
+            const artist = document.getElementById("artist");
+            const quote = document.getElementById("media-quote");
+
+            mediaTitle.textContent = randomMedia.title;
+            artist.textContent = randomMedia.artist;
+            quote.textContent = mediaQuotes[mood][Math.floor(Math.random() * mediaQuotes[mood].length)];
+
+            // Toggle between audio and video
+            if (randomMedia.type === "audio") {
+                audioPlayer.style.display = "block";
+                videoPlayer.style.display = "none";
+                audioPlayer.src = randomMedia.src;
+                videoPlayer.pause();
+            } else if (randomMedia.type === "video") {
+                audioPlayer.style.display = "none";
+                videoPlayer.style.display = "block";
+                videoPlayer.src = randomMedia.src;
+                audioPlayer.pause();
+            }
+
+            updatePlaylist(mood);
+        }
+
+        function updatePlaylist(mood) {
+            const playlistItems = document.getElementById("playlist-items");
+            playlistItems.innerHTML = "";
+            mediaDatabase[mood].forEach(media => {
+                const li = document.createElement("li");
+                li.textContent = `${media.title} - ${media.artist} (${media.type})`;
+                li.onclick = () => playSelectedMedia(media);
+                playlistItems.appendChild(li);
+            });
+        }
+
+        function playSelectedMedia(media) {
+            const audioPlayer = document.getElementById("audio-player");
+            const videoPlayer = document.getElementById("video-player");
+            const mediaTitle = document.getElementById("media-title");
+            const artist = document.getElementById("artist");
+
+            mediaTitle.textContent = media.title;
+            artist.textContent = media.artist;
+
+            if (media.type === "audio") {
+                audioPlayer.style.display = "block";
+                videoPlayer.style.display = "none";
+                audioPlayer.src = media.src;
+                audioPlayer.play();
+                videoPlayer.pause();
+            } else if (media.type === "video") {
+                audioPlayer.style.display = "none";
+                videoPlayer.style.display = "block";
+                videoPlayer.src = media.src;
+                videoPlayer.play();
+                audioPlayer.pause();
+            }
+        }
+
+        // Initialize
+        window.onload = () => {
+            setGreeting();
+        };
+    </script>
+</body>
+</html>

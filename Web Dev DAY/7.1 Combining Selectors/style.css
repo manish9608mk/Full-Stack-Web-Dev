@@ -1,0 +1,36 @@
+/* Write your code here: */
+
+/* using grouping of selector */
+h1, h2 {
+  color: blueviolet;
+}
+/* child selector here only one level  */
+.box > p {
+  color: firebrick;
+}
+/* descendant or for selector think another way parent grandchild */
+.box li {
+  color: blue;
+}
+/* chaining */
+li.done{
+  color: seagreen;
+}
+/* combining selector */
+ul p.done{
+  font-size: 2rem;
+  
+}
+
+ul > p.done{
+  color: chartreuse;
+  /* above and this both are correct here we are using child selector */
+}
+
+
+
+
+/* my practice  */
+ol .done{
+  font-size: 3rem;
+}

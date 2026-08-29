@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .news-container {
+            width: 50%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .news-item {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .real {
+            background-color: green;
+            color: white;
+        }
+        .fake {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Fake News Detection System</h1>
+    <div class="news-container" id="newsList">
+        <!-- News articles will be dynamically added here -->
+    </div>
+
+    <script>
+        // Sample news data
+        let newsData = [
+            { id: 1, title: "Moon Landing is Fake!", real: 0, fake: 0 },
+            { id: 2, title: "AI Will Take Over the World by 2030!", real: 0, fake: 0 },
+            { id: 3, title: "Scientists Find Water on Mars!", real: 0, fake: 0 }
+        ];
+
+        // Function to display news articles
+        function displayNews() {
+            let newsList = document.getElementById("newsList");
+            newsList.innerHTML = "";  // Clear existing news (Using innerHTML)
+            
+            newsData.forEach(news => {
+                let newsItem = document.createElement("div");
+                newsItem.className = "news-item";
+                newsItem.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <p>Real: <span id="real-${news.id}">${news.real}</span> | Fake: <span id="fake-${news.id}">${news.fake}</span></p>
+                    <div class="buttons">
+                        <button class="real" onclick="markReal(${news.id})">Mark as Real</button>
+                        <button class="fake" onclick="markFake(${news.id})">Mark as Fake</button>
+                    </div>
+                `;
+                newsList.appendChild(newsItem);  // Append the news item
+            });
+        }
+
+        // Function to mark news as real
+        function markReal(id) {
+            let news = newsData.find(n => n.id === id);
+            news.real += 1;
+            document.getElementById(`real-${id}`).innerHTML = news.real; // Update UI using innerHTML
+        }
+
+        // Function to mark news as fake
+        function markFake(id) {
+            let news = newsData.find(n => n.id === id);
+            news.fake += 1;
+            document.getElementById(`fake-${id}`).innerHTML = news.fake; // Update UI using innerHTML
+        }
+
+        // Load news on page load
+        displayNews();
+    </script>
+
+</body>
+</html>

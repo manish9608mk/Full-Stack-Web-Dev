@@ -1,0 +1,36 @@
+#red{
+  color: red;
+  /* font-weight: normal; */
+}
+
+
+#blue{
+  color:blue ;
+  /* font-weight: normal; */
+}
+
+#orange{
+  color:orange ;
+  /* font-weight: normal; */
+}
+
+#green{
+  color:green;
+  /* font-weight: normal; */
+}
+
+#yellow{
+  color:yellow;
+  /* font-weight: normal; */
+}
+
+/* font-weight alag alag krne ke jagah sabko ek sath kr liye using class kyuki sabka call name same hai and we know that ek file main same name se class bhut ho sakte hain but id unique hoti hai ek file main ek he ho sakte hain */
+
+.color-title{
+  font-weight: normal;
+}
+
+img{
+  width: 200px;
+  height: 200px;
+}

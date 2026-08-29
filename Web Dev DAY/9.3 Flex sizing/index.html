@@ -1,0 +1,68 @@
+<!-- created by me  -->
+<!-- for practice go to this website:  
+    https://appbrewery.github.io/flexbox-sizing-exercise/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flexbox</title>
+  <style>
+
+    /* periority order
+    content-width > width > flex-basis > min-width > max-width */
+
+    .container{
+      display: flex;
+      gap: 10px;
+    }
+
+    .same{
+      /* width: 100px; */
+
+      /* flex-basis: 100px; */
+      /* when flex-basis is set then width is completely ignored due to periority order similiary happend below */
+
+      /* max-width: 100px; */
+      /* min-height: 300px; */
+      
+      /* min-width: 300px; */
+
+      /* flex-grow: 1; */
+      /* flex-shrink: 1; */
+
+
+      /* better way */
+      /* flex: 1 1 0; */
+      /* or */
+      flex: 1;
+
+    }
+
+    .a{
+      background-color: gray;
+    }
+    .m{
+      background-color: red;
+    }
+    .mk{
+      background-color: hotpink;
+    }
+    .mac{
+      background-color: wheat;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <p class="a same">About</p>
+    <p class="m same">Manish</p>
+    <p class="mk same">Manish kumar</p>
+    <p class="mac same">LNCT group of college, bhaopal,MP</p>
+    
+  </div>
+</body>
+</html>

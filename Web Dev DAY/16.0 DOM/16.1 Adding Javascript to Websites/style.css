@@ -1,0 +1,18 @@
+h1{
+  color: hotpink;
+}
+.inline{
+  background-color: rgb(206, 97, 13);
+  color: white;
+}
+.internal{
+  background-color: aliceblue;
+  color: blue;
+}
+.external{
+  background-color: rgb(3, 145, 14);
+  color: white;
+}
+body{
+  background-color: rgba(230, 219, 219, 0.524);
+}

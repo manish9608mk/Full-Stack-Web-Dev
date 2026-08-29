@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to create node list progamatically</title>
+
+  <style>
+    body{
+      background-color: rgb(74, 80, 80);
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+
+<script>
+
+//create element 
+let div = document.createElement('div')
+console.log(div);
+div.className = "main"
+// div.id = "myId"
+div.id = Math.round(Math.random() * 10 + 1)
+
+// set attribute
+div.setAttribute('title', 'using set attributes for How to create node list progamatically')
+
+// styling
+div.style.backgroundColor = "yellow"
+div.style.padding = '20px';
+
+// not prefer for inner text bcz 2 round lagta hai dono mai but, prefer below code 
+// div.innerHTML="Creating node list"
+
+let addText = document.createTextNode("Creating node LIST")
+div.appendChild(addText)
+
+// now attaching to documents
+document.body.appendChild(div)
+
+
+
+</script>
+
+</html>

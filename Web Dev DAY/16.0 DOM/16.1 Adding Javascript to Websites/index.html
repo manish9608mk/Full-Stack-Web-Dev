@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-16">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AddingJavascriptToWebsites</title>
+
+  <!-- css link external -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- internal js example  -->
+  <script>
+    // JavaScript code goes here
+    function sayHello() {
+      alert('Hello from internal JS!');
+    }
+    sayHello();
+  </script>
+
+
+</head>
+<body onload="alert('Hi here we are, Adding Javascript to Websites')" >
+  <h1>Adding Javascript to Websites</h1>
+  <P class="inline">
+    INLINE JS 
+    <button onclick="alert('Hello, inline js example')">Click Me</button> <br/>
+    Best Practices <br/>
+    1- Avoid Overusing Inline JS: For larger projects, it’s better to use external JS files (e.g.) to keep code maintainable and separate from HTML.
+    <br/>
+    2- Security Note: Be cautious with inline JS if it involves user input, as it can be vulnerable to XSS (Cross-Site Scripting) attacks.
+    <br/>
+    3- Performance: Inline JS in <head> without defer or async can block HTML rendering, so placing it at the end of <body> is often preferred.
+  </P>
+  <p class="internal">
+    INTERNAL JS 
+    When to Avoid Internal JS <br/>
+    1- Large Projects: Use external JS files for better modularity and team collaboration. <br/>
+    2- Performance-Critical Sites: External files can be cached by browsers, reducing load times. <br/>
+    3- Reusable Code: Internal JS is tied to one HTML file, limiting reuse.
+  </p>
+  <p class="external">
+    EXTERNAL JS (peferred) <br/>
+    When to Use External JS <br/>
+    1- Large projects with reusable code. <br/>
+    2- Team collaboration (easier to manage in version control). <br/>
+    3- Performance-critical sites (caching benefits). 
+  </p>
+  <p>
+    NOTE: <br/>
+    When Not to Use <body>?
+    1- Scripts That Must Load Early: If the JS needs to run before the page renders (e.g., critical setup logic), use head with defer. <br/>
+    2- Independent Scripts: For analytics or tracking scripts that don’t need the DOM, head with async is fine. <br/>
+    <br/>
+    3- always put the css link in head tag just below the title tag <br/>
+    4- Always put the script just before the closing body tag
+      
+      
+
+  </p>
+
+
+
+  <!-- external js link  -->
+  <script src="index.js" ></script>
+</body>
+<!-- script yanha pr likh sakte hain -->
+</html>

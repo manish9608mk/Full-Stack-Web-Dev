@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerHTML vs appendChild</title>
+</head>
+<body>
+    <h2>Task List</h2>
+    <button onclick="resetTasks()">Reset List</button>
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList"></ul>
+
+    <script>
+        function resetTasks() {
+            // Using innerHTML to clear/reset the task list
+            document.getElementById("taskList").innerHTML = "<li>Default Task</li>";
+        }
+
+        function addTask() {
+            // Using appendChild to add a new task dynamically
+            let newTask = document.createElement("li");
+            newTask.textContent = "New Task " + (document.getElementById("taskList").children.length + 1);
+            document.getElementById("taskList").appendChild(newTask);
+        }
+    </script>
+</body>
+</html>
